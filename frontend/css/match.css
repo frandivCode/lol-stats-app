@@ -1,0 +1,128 @@
+.match-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border-left: 6px solid var(--color-border);
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    &.match-card--win {
+        background-color: var(--color-win-bg);
+        border-left-color: var(--color-win-text);
+    }
+
+    &.match-card--loss {
+        background-color: var(--color-loss-bg);
+        border-left-color: var(--color-loss-text);
+    }
+}
+
+.match-card__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    /* La clave para que no se desborde al achicar la pantalla */
+}
+
+.match-card__info {
+    min-width: 100px;
+}
+
+.match-card__match-id {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+
+.match-card__champion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.match-card__kda {
+    text-align: center;
+    min-width: 130px;
+}
+
+.match-card__kda-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.match-card__kda-numbers {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.match-card__kda-player {
+    display: block;
+    margin-top: 4px;
+}
+
+.match-card__extra {
+    text-align: right;
+    min-width: 110px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.match-card__extra p {
+    margin: 0 0 4px 0;
+}
+
+.match-card__result {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.match-card--win .match-card__result {
+    color: var(--color-win-text);
+}
+
+.match-card--loss .match-card__result {
+    color: var(--color-loss-text);
+}
+
+.match-card__date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.match-card__champion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.match-card__champ-name {
+    font-weight: bold;
+}
+
+.match-card__role {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.match-card__kda {
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.match-card--visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}

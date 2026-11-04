@@ -1,0 +1,98 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-base: #1c1c1f;
+    --bg-surface: #31313c;
+    --bg-header: #111111;
+
+    --color-text-main: #f0e6d2;
+    --color-text-muted: #9e9ea7;
+
+    --color-win-bg: #28344e;
+    --color-win-text: #82a8f5;
+    --color-loss-bg: #3b232a;
+    --color-loss-text: #e35959;
+
+    --color-noxus-red: #c62828;
+    --color-border: #424254;
+
+    --font-main: system-ui, -apple-system, sans-serif;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-base);
+    color: var(--color-text-main);
+    margin: 0;
+    padding: 0;
+}
+
+.visually-hidden {
+    display: none;
+}
+
+/* Estilos modernos para Modales y Formularios */
+.modal {
+    background: var(--bg-surface);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+}
+
+.modal__title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--bg-base);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--color-win-text);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}

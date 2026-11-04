@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div.GG - Estadísticas</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/match.css">
+    <script type="module" src="./js/main.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__brand">
+                <h1 class="nav__logo">DIV.GG</h1>
+            </div>
+            <div class="nav__search-box" style="display: flex; gap: 1rem;">
+                <input type="search" id="searchInput" class="nav__input" placeholder="Buscar invocador, campeón, rol..."
+                    aria-label="Buscador global">
+                <button id="btnOpenNewMatch" class="btn-primary"
+                    style="background: var(--color-win-text); color: white; border: none; padding: 0.5rem 1rem; border-radius: var(--radius-sm); cursor: pointer; font-weight: bold;">+
+                    Partida Base</button>
+                <button id="btnOpenModal" class="btn-primary"
+                    style="background: var(--color-noxus-red); color: white; border: none; padding: 0.5rem 1rem; border-radius: var(--radius-sm); cursor: pointer; font-weight: bold;">+
+                    Cargar Stats</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <aside class="dashboard__sidebar">
+            <section class="stats-panel">
+                <h2 class="stats-panel__title">Resumen de Búsqueda</h2>
+                <div id="stats-container" class="stats-panel__content">
+                    <p class="stats-panel__text">Buscá un invocador para ver sus estadísticas.</p>
+                </div>
+            </section>
+        </aside>
+
+        <section class="dashboard__history" id="match-container" aria-labelledby="history-title">
+            <h2 id="history-title" class="visually-hidden">Historial de Partidas</h2>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">© 2026 Div.GG - Web de Estadísticas de Lol by <a href="https://github.com/frandivCode"
+                aria-label="Perfil de github de Francisco Zapata" target="_blank">Francisco Zapata</a></p>
+    </footer>
+
+    <dialog id="newMatchModal" class="modal">
+        <h3 class="modal__title" style="color: var(--color-win-text);">Crear Partida Base</h3>
+        <form id="newMatchForm" class="form-group">
+
+            <input type="number" name="id_partida" class="form-input" placeholder="ID Partida (ej: 1016)" min="1000"
+                max="9999" required>
+            <input type="date" name="fecha" class="form-input" required>
+
+            <div class="form-row">
+                <input type="number" name="duracion_minutos" class="form-input" placeholder="Minutos" min="15" max="90"
+                    required>
+                <input type="text" name="parche" class="form-input" placeholder="Parche (14.22)"
+                    pattern="^\d{2}\.\d{2}$" title="Formato requerido: XX.XX" required>
+            </div>
+
+            <select name="equipo_ganador" class="form-select" required>
+                <option value="" disabled selected>Equipo Ganador</option>
+                <option value="Azul">Equipo Azul</option>
+                <option value="Rojo">Equipo Rojo</option>
+            </select>
+
+            <div class="form-actions">
+                <button type="button" id="btnCloseNewMatch"
+                    style="background: transparent; color: var(--color-text-muted); border: none; cursor: pointer;">Cancelar</button>
+                <button type="submit" class="btn-primary"
+                    style="background: var(--color-win-text); color: white; border: none; padding: 0.5rem 1.5rem; border-radius: var(--radius-sm); cursor: pointer; font-weight: bold;">Crear
+                    Partida</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Modal: Cargar Estadísticas -->
+    <dialog id="statModal" class="modal">
+        <h3 class="modal__title" style="color: var(--color-noxus-red);">Cargar Estadísticas</h3>
+        <form id="statForm" class="form-group">
+
+            <select name="id_jugador" id="selectJugador" class="form-select" required>
+                <option value="" disabled selected>Seleccioná al Jugador</option>
+            </select>
+
+            <select name="id_partida" id="selectPartida" class="form-select" required>
+                <option value="" disabled selected>Seleccioná la Partida</option>
+            </select>
+
+            <select name="id_campeon" id="selectCampeon" class="form-select" required>
+                <option value="" disabled selected>Seleccioná el Campeón</option>
+            </select>
+
+            <div class="form-row">
+                <input type="number" name="asesinatos" class="form-input" placeholder="Kills" min="0" max="100"
+                    required>
+                <input type="number" name="muertes" class="form-input" placeholder="Deaths" min="0" max="100" required>
+                <input type="number" name="asistencias" class="form-input" placeholder="Assists" min="0" max="150"
+                    required>
+            </div>
+
+            <input type="number" name="oro_total" class="form-input" placeholder="Oro Total (ej: 15500)" min="1000"
+                max="50000" step="100" required>
+
+            <div class="form-actions">
+                <button type="button" id="btnCloseModal"
+                    style="background: transparent; color: var(--color-text-muted); border: none; cursor: pointer;">Cancelar</button>
+                <button type="submit" class="btn-primary"
+                    style="background: var(--color-noxus-red); color: white; border: none; padding: 0.5rem 1.5rem; border-radius: var(--radius-sm); cursor: pointer; font-weight: bold;">Guardar
+                    Stats</button>
+            </div>
+        </form>
+    </dialog>
+</body>
+
+</html>
